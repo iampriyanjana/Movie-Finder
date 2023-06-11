@@ -5,7 +5,7 @@ var movie_cards = document.getElementById('movie-cards');
 
 btn.addEventListener('click',async function(){
    let mov=input.value;
-   let api= await fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=8c6c6942&s=${mov}`);
+   let api= await fetch(`https://www.omdbapi.com/?i=tt3896198&apikey=8c6c6942&s=${mov}`);
    let result = await api.json();
    showMovies(result.Search)
 })
@@ -13,7 +13,7 @@ btn.addEventListener('click',async function(){
 function showMovies(pictures){
    movie_cards.innerHTML="";
    pictures.forEach(async function(movie) {
-      let api=await fetch(`http://www.omdbapi.com/?&apikey=8c6c6942&i=${movie.imdbID}`);
+      let api=await fetch(`https://www.omdbapi.com/?&apikey=8c6c6942&i=${movie.imdbID}`);
       let response=await api.json();
       movie_display(response);
    });
